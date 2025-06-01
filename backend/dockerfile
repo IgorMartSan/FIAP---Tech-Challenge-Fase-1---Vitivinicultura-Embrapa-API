@@ -1,5 +1,7 @@
 # Base com suporte CUDA e cuDNN
-FROM nvidia/cuda:12.2.2-cudnn8-devel-ubuntu22.04
+# FROM nvidia/cuda:12.2.2-cudnn8-devel-ubuntu22.04
+
+FROM python:3.10
 
 # Atualiza e instala dependências do sistema
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -36,4 +38,4 @@ ENV PATH="/code/.venv/bin:/root/.local/bin:$PATH"
 WORKDIR /code/src
 
 # Comando padrão para execução
-CMD ["uv", "run", "main_mjpeg_stream_funcional.py"]
+CMD ["uv", "run", "main.py"]

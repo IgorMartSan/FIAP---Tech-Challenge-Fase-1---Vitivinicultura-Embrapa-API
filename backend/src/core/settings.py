@@ -9,7 +9,7 @@ class Settings:
     # Infra geral
     CONTAINER_NAME  = os.getenv("CONTAINER_NAME")
     IP = os.getenv("IP")
-    PREFIX_PORT = int(os.getenv("PREFIX_PORT"))
+    #PREFIX_PORT = int(os.getenv("PREFIX_PORT"))
     GLOBAL_PATH = os.getenv("GLOBAL_PATH")
     PATH_LOGS = os.getenv("PATH_LOGS")
     PATH_VOL_POSTGRES = os.getenv("PATH_VOL_POSTGRES")
@@ -21,12 +21,12 @@ class Settings:
     DB_HOST = os.getenv("DB_HOST")
     DB_DATABASENAME = os.getenv("DB_DATABASENAME")
     DB_PORT = int(os.getenv("DB_PORT"))
-    PGADMIN_PORT = int(os.getenv("PGADMIN_PORT"))
+    #PGADMIN_PORT = int(os.getenv("PGADMIN_PORT"))
 
     # Redis
-    REDIS_PASSWORD = os.getenv("REDIS_PASSWORD")
-    REDIS_PORT = int(os.getenv("REDIS_PORT"))
-    REDIS_INSIGHT_PORT = int(os.getenv("REDIS_INSIGHT_PORT"))
+    # REDIS_PASSWORD = os.getenv("REDIS_PASSWORD")
+    # REDIS_PORT = int(os.getenv("REDIS_PORT"))
+    # REDIS_INSIGHT_PORT = int(os.getenv("REDIS_INSIGHT_PORT"))
 
     # JWT
     SECRET_KEY = "mysecretkey"

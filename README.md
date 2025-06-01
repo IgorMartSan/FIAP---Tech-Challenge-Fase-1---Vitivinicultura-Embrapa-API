@@ -16,9 +16,7 @@
 
 
 username="admin"
-email="admin@example.com"
 password="automate123."
-
 
 
 

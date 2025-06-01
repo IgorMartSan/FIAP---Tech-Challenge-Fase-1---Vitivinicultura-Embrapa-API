@@ -7,8 +7,8 @@ services:
       dockerfile: dockerfile
     ports:
       - ${PORT_API}:8010
-    depends_on:
-      - db_postgres
+    # depends_on:
+    #   - db_postgres
     logging:
       driver: "json-file"
       options:
@@ -35,48 +35,48 @@ services:
 
 ##########################################################################################
 
-  redis:
-    #container_name: sis_redis
-    image: redis:latest
-    restart: always
-    ports:
-      - ${REDIS_PORT}:6379
-    #command: /bin/sh -c "redis-server --requirepass $$REDIS_PASSWORD" #Não funciona
-    command: redis-server --requirepass mypassword #Funciona
-    networks:
-      - networks_project
+  # redis:
+  #   #container_name: sis_redis
+  #   image: redis:latest
+  #   restart: always
+  #   ports:
+  #     - ${REDIS_PORT}:6379
+  #   #command: /bin/sh -c "redis-server --requirepass $$REDIS_PASSWORD" #Não funciona
+  #   command: redis-server --requirepass mypassword #Funciona
+  #   networks:
+  #     - networks_project
 
-  redis_insight:
-    image: redislabs/redisinsight:latest
-    #container_name: sis_redis_insight
-    restart: always
-    environment:
-      REDISINSIGHT_REDIS_URI: redis://default:${REDIS_PASSWORD}@${IP}:${REDIS_PORT}
-    ports:
-      - ${REDIS_INSIGHT_PORT}:5540
-    networks:
-      - networks_project
+  # redis_insight:
+  #   image: redislabs/redisinsight:latest
+  #   #container_name: sis_redis_insight
+  #   restart: always
+  #   environment:
+  #     REDISINSIGHT_REDIS_URI: redis://default:${REDIS_PASSWORD}@${IP}:${REDIS_PORT}
+  #   ports:
+  #     - ${REDIS_INSIGHT_PORT}:5540
+  #   networks:
+  #     - networks_project
 
 
-  db_postgres:
-    #container_name: db_postgres
-    image: postgres:15.2-alpine
-    restart: always
-    ports:
-      - ${DB_PORT}:5432
-    environment:
+  # db_postgres:
+  #   #container_name: db_postgres
+  #   image: postgres:15.2-alpine
+  #   restart: always
+  #   ports:
+  #     - ${DB_PORT}:5432
+  #   environment:
     
-      POSTGRES_USER: ${DB_USER}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_DB: ${DB_DATABASENAME}
-      # TZ: 'America/Sao_Paulo'
-      # PGTZ: 'America/Sao_Paulo'
-      # PGDATA: /var/lib/postgresql/data/pgdata 
-    volumes:
-      - ${PATH_VOL_POSTGRES}:/var/lib/postgresql/data
-     # - ./config/postgres:/docker-entrypoint-initdb.d
-    networks:
-      - networks_project
+  #     POSTGRES_USER: ${DB_USER}
+  #     POSTGRES_PASSWORD: ${DB_PASSWORD}
+  #     POSTGRES_DB: ${DB_DATABASENAME}
+  #     # TZ: 'America/Sao_Paulo'
+  #     # PGTZ: 'America/Sao_Paulo'
+  #     # PGDATA: /var/lib/postgresql/data/pgdata 
+  #   volumes:
+  #     - ${PATH_VOL_POSTGRES}:/var/lib/postgresql/data
+  #    # - ./config/postgres:/docker-entrypoint-initdb.d
+  #   networks:
+  #     - networks_project
 
   pgadmin:
     #container_name: sis_pgadmin
