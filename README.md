@@ -1,5 +1,3 @@
-
-
 # ✅ Entregáveis do Projeto
 
 - [x] API funcional com endpoints REST públicos e documentados.
@@ -8,17 +6,16 @@
 - [ ] Pipeline de ingestão e processamento funcionando.(Opicional)
 - [x] Descrição clara da integração com Machine Learning.
 - [x] Diagrama da arquitetura adicionado no README.
-- [ ] Link do deploy funcionando.
-
+- [x] Link do deploy funcionando.
 
 
 # ✅ Entregáveis do Projeto
 
+Para autenticar na API e utilizar os endpoints disponíveis, utilize as seguintes credenciais padrão:
 
-username="admin"
-password="automate123."
+Nome de Usuário: admin
 
-
+Senha: automate123.
 
 # 🏗️ Plano de Deploy — API de Vitivinicultura + ML
 
@@ -30,35 +27,7 @@ A API irá alimentar uma pipeline de **Machine Learning**.
 
 ## 🚀 Arquitetura do Projeto
 
-```plaintext
-        +------------------------+
-        |      Usuários/API      |
-        +-----------+------------+
-                    |
-                    v
-        +------------------------------+
-        |      API - FastAPI (Nuvem)   |
-        | - Consome dados da Embrapa   |
-        | - Disponibiliza dados (JSON) |
-        | - Endpoints documentados     |
-        | - (Opcional) Autenticação JWT|
-        +---------------+--------------+
-                        |
-                        v
-           +-------------------------------+
-           |       Banco de Dados (Cloud)  |
-           | - PostgreSQL / MongoDB        |
-           | - Dados estruturados          |
-           +---------------+---------------+
-                           |
-                           v
-           +-------------------------------+
-           | Pipeline de Machine Learning  |
-           | - Coleta dados do DB          |
-           | - Treinamento e inferência    |
-           | - Salva previsões no DB       |
-           +-------------------------------+
-```
+![Diagrama de Exemplo](./architecture.svg)
 
 ## ⚙️ Componentes
 
@@ -84,6 +53,7 @@ A API irá alimentar uma pipeline de **Machine Learning**.
   - Documentação automática disponível em `/docs`.
   - Autenticação via JWT.
 - **Tecnologias:**
+  - AWS - EC2.
   - Python + FastAPI.
   - Pydantic para validação de dados.
   - SQLAlchemy (PostgreSQL).
@@ -100,9 +70,9 @@ A API irá alimentar uma pipeline de **Machine Learning**.
 
 ---
 
-### 4️⃣ Pipeline de Machine Learning
+### 4️⃣ Pipeline de Machine Learning (Opicional)
 - **Pipeline Offline:**
-  - Extração dos dados do banco.
+  - Armazenamento dos Dados.
   - Processamento, feature engineering e limpeza.
   - Treinamento de modelos preditivos (ex.: regressão, árvore, redes neurais).
   - Validação e salvamento dos modelos.
@@ -156,10 +126,10 @@ A API irá alimentar uma pipeline de **Machine Learning**.
    ↓ (Scraping/API)
 [API FastAPI]
    ↓ (POST dados)
-[Banco de Dados]
-   ↓ (Dataset limpo)
 [Pipeline ML]
-   ↓ (Previsões e análises)
+   ↓ (Dataset de treino, Previsões e análises)
+[API Deploy]
+   ↓ (Previsões)   
 [Banco de Dados]
    ↑ (GET previsões)
 [API → Usuário Final]
@@ -184,24 +154,5 @@ A API irá alimentar uma pipeline de **Machine Learning**.
 
 ---
 
-## 📦 Estrutura do Repositório (Exemplo)
-
-```plaintext
-├── app/
-│   ├── main.py                # Arquivo principal da API
-│   ├── api/                   # Rotas e endpoints
-│   ├── models/                # Models do banco
-│   ├── services/              # Lógica de scraping e ingestão
-│   ├── utils/                 # Funções auxiliares
-│   └── schemas/               # Schemas Pydantic
-├── ml/
-│   ├── pipeline.py            # Pipeline de dados para ML
-│   ├── model.pkl              # Modelo treinado
-│   └── predict.py             # Script de predição
-├── Dockerfile                 # Dockerfile da API
-├── docker-compose.yml         # Compose para API + DB
-├── requirements.txt           # Dependências do projeto
-├── README.md                  # Documentação do projeto
-```
 
 
