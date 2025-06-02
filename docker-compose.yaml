@@ -23,10 +23,7 @@ services:
         DB_HOST: ${DB_HOST}
         DB_PORT: ${DB_PORT}
 
-        #JWT
-        SECRET_KEY: ${SECRET_KEY}
-        ALGORITHM: ${ALGORITHM}
-        ACCESS_TOKEN_EXPIRE_MINUTES: ${ACCESS_TOKEN_EXPIRE_MINUTES}
+
     volumes:
         -  ${PATH_LOGS}:/system_logs 
     networks:
@@ -78,20 +75,20 @@ services:
   #   networks:
   #     - networks_project
 
-  pgadmin:
-    #container_name: sis_pgadmin
-    image: dpage/pgadmin4
-    restart: always
-    environment:
-      PGADMIN_DEFAULT_EMAIL: "admin@gmail.com"
-      PGADMIN_DEFAULT_PASSWORD: "admin"
-      TZ: America/Sao_Paulo
-    ports:
-      - ${PGADMIN_PORT}:80
-    volumes:
-      - ./config/pgadmin4/servers.json:/pgadmin4/servers.json
-    networks:
-      - networks_project
+  # pgadmin:
+  #   #container_name: sis_pgadmin
+  #   image: dpage/pgadmin4
+  #   restart: always
+  #   environment:
+  #     PGADMIN_DEFAULT_EMAIL: "admin@gmail.com"
+  #     PGADMIN_DEFAULT_PASSWORD: "admin"
+  #     TZ: America/Sao_Paulo
+  #   ports:
+  #     - ${PGADMIN_PORT}:80
+  #   volumes:
+  #     - ./config/pgadmin4/servers.json:/pgadmin4/servers.json
+  #   networks:
+  #     - networks_project
 
 
 
