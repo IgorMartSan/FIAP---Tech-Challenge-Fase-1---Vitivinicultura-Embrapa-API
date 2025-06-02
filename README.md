@@ -1,21 +1,32 @@
+
+# 👤 Desenvolvedor Responsável
+Nome: Igor Martins
+
+GitHub (Projeto): (https://github.com/IgorMartSan/FIAP---Tech-Challenge-Fase-1---Vitivinicultura-Embrapa-API)
+
+
+
 # ✅ Entregáveis do Projeto
 
-- [x] API funcional com endpoints REST públicos e documentados.
-- [x] Autenticação via JWT. (Opicional)
+- [x] Criar uma Rest API em Python que faça a consulta no site da Embrapa.
 - [x] Documentação dos endpoints via Swagger (`/docs`).
+- [x] Autenticação via JWT. (Opicional)
+- [x] Link do MVP funcionando (http://15.228.128.5:32105/docs).
 - [ ] Pipeline de ingestão e processamento funcionando.(Opicional)
-- [x] Descrição clara da integração com Machine Learning.
-- [x] Diagrama da arquitetura adicionado no README.
-- [x] Link do deploy funcionando.
+- [x] Plano para fazer o deploy da API, desenhando a arquiteturado projeto desde a ingestão até a alimentação do modelo.
 
 
-# ✅ Acesso a API
 
-Para autenticar na API e utilizar os endpoints disponíveis, utilize as seguintes credenciais padrão:
+# ✅ Acesso à API
 
-Nome de Usuário: admin
+Para consumir os endpoints protegidos da API, é necessário autenticar-se utilizando as credenciais padrão a seguir:
+
+Usuário: admin
 
 Senha: automate123.
+
+Link (MVP): http://15.228.128.5:32105/docs
+
 
 # 🏗️ Plano de Deploy — API de Vitivinicultura + ML
 
