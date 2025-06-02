@@ -9,7 +9,7 @@
 - [x] Link do deploy funcionando.
 
 
-# ✅ Entregáveis do Projeto
+# ✅ Acesso a API
 
 Para autenticar na API e utilizar os endpoints disponíveis, utilize as seguintes credenciais padrão:
 
@@ -40,7 +40,7 @@ A API irá alimentar uma pipeline de **Machine Learning**.
     - Comercialização
     - Importação
     - Exportação
-  - Transformação dos dados brutos em dados estruturados (Json).
+  - Transformação dos dados brutos em dados estruturados (JSON).
 - **Destino:** Pipeline de Machine Learning.
 
 ---
