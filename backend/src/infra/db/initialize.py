@@ -2,6 +2,7 @@ from sqlalchemy.exc import OperationalError
 from infra.db.database import Base, engine, SessionLocal
 from infra.db.models import User
 from utils.auth import AuthUtils
+from core.settings import settings
 
 
 def create_database():
@@ -21,9 +22,9 @@ def create_admin_user():
 
         if not admin:
             admin_user = User(
-                username="admin",
-                email="admin@example.com",
-                hashed_password=AuthUtils.get_password_hash("automate123."),
+                username=settings.INITIAL_USER_LOGIN_JWT,
+                email=settings.INITIAL_USER_EMAIL_JWT,
+                hashed_password=AuthUtils.get_password_hash(settings.INITIAL_USER_PASSWORD_JWT),
                 is_active=True,
                 user_type="admin"
             )

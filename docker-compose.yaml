@@ -28,8 +28,37 @@ services:
     networks:
       - networks_project
 
+  db_postgres:
+    #container_name: db_postgres
+    image: postgres:15.2-alpine
+    restart: always
+    ports:
+      - ${DB_PORT}:5432
+    environment:
+    
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_DATABASENAME}
 
+    volumes:
+      - ${PATH_VOL_POSTGRES}:/var/lib/postgresql/data
+     # - ./config/postgres:/docker-entrypoint-initdb.d
+    networks:
+      - networks_project
 
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "admin@gmail.com"
+      PGADMIN_DEFAULT_PASSWORD: "admin"
+      TZ: America/Sao_Paulo
+    ports:
+      - ${PGADMIN_PORT}:80
+    volumes:
+      - ./config/pgadmin4/servers.json:/pgadmin4/servers.json
+    networks:
+      - networks_project
 
 
 networks:

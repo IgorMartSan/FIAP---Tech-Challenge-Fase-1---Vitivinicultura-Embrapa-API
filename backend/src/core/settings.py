@@ -21,6 +21,11 @@ class Settings:
     DB_HOST = os.getenv("DB_HOST")
     DB_DATABASENAME = os.getenv("DB_DATABASENAME")
     DB_PORT = int(os.getenv("DB_PORT"))
+
+    INITIAL_USER_LOGIN_JWT=os.getenv("INITIAL_USER_LOGIN_JWT")
+    INITIAL_USER_PASSWORD_JWT=os.getenv("INITIAL_USER_PASSWORD_JWT")
+    INITIAL_USER_EMAIL_JWT=os.getenv("INITIAL_USER_EMAIL_JWT")
+
     #PGADMIN_PORT = int(os.getenv("PGADMIN_PORT"))
 
     # Redis

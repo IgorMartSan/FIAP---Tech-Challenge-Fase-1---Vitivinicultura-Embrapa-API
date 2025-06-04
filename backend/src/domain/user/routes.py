@@ -119,17 +119,3 @@ def delete_user(user_id: int, db: Session = Depends(get_db), token_data: dict = 
     return {"message": f"User {user_id} deleted successfully"}
 
 
-# 🚀 Login
-@router.post(
-    "/login",
-    response_model=schemas.UserAuthResponseSchema,
-    summary="Login do usuário",
-    description="Autentica o usuário com `email` e `senha`. Retorna um token JWT em caso de sucesso."
-)
-def login(request: schemas.UserLoginRequestSchema, db: Session = Depends(get_db)):
-    """
-    Autentica o usuário e retorna um token JWT.
-
-    - Se o email ou a senha estiverem incorretos, retorna erro 401.
-    """
-    return UserUseCases.login(request.email, request.password, db)
